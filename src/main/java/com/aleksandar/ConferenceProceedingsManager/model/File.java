@@ -21,4 +21,11 @@ public class File implements Serializable {
 
 //    @Column(nullable=false)
 //    private int size;
+
+    @ManyToOne
+    private Licence licence;
+
+    //fali veza ka proceeigns
+
+    //fali veza ka Paper
 }

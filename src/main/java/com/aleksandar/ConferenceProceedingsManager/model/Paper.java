@@ -1,6 +1,7 @@
 package com.aleksandar.ConferenceProceedingsManager.model;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name="paper")
@@ -26,4 +27,11 @@ public class Paper implements Serializable {
 
     @Column(nullable=false)
     private byte published;
+
+    @Column(nullable=false)
+    @ManyToOne
+    private Proceedings proceedings;
+
+    @OneToMany(mappedBy ="paper" ,fetch = FetchType.EAGER)
+    private Set<Author> authors;
 }

@@ -30,6 +30,17 @@ public class Author implements Serializable {
     @Column(length=40)
     private String email;
 
+    @Column(nullable=false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Researcher researcher;
+
+//    @Column(nullable=false) // za sad nek bude nullable
+    @ManyToOne
+    private ResearcherRole researcherRole;
+
+    @Column(nullable=false)
+    @ManyToOne(fetch=FetchType.LAZY,optional = false)
+    private Paper paper;
 
 
 

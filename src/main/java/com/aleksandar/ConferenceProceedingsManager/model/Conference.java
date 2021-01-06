@@ -3,6 +3,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name="conference")
@@ -38,7 +39,18 @@ public class Conference implements Serializable {
     @Column(nullable=false)
     private boolean published;
 
+    @ManyToOne(fetch=FetchType.LAZY)
+    private User user;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "conference_organizer_id",referencedColumnName = "id")
+    private ConferenceOrganizer conferenceOrganizer;
+
+    @OneToMany(mappedBy ="conference" ,fetch = FetchType.EAGER)
+    private Set<BoardMember> boardMembers;
+
+    @OneToMany(mappedBy ="conference" ,fetch = FetchType.LAZY)
+    private Set<Proceedings> proceedings;
 
 
 

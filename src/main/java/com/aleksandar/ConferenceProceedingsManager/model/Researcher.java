@@ -1,6 +1,7 @@
 package com.aleksandar.ConferenceProceedingsManager.model;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name="researcher")
@@ -31,4 +32,13 @@ public class Researcher implements Serializable {
 
     @Column(length = 20)
     private String ORCID;
+
+    @OneToMany(mappedBy ="researcher", fetch = FetchType.LAZY)
+    private Set<BoardMember> boardMembers;
+
+    @OneToMany(mappedBy ="researcher", fetch = FetchType.LAZY)
+    private Set<Editor> editors;
+
+    @OneToMany(mappedBy ="researcher", fetch = FetchType.LAZY)
+    private Set<Author> authors;
 }

@@ -1,6 +1,7 @@
 package com.aleksandar.ConferenceProceedingsManager.model;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name="researcher_role")
@@ -20,6 +21,14 @@ public class ResearcherRole implements Serializable {
     @Column(length=100)
     private String description;
 
+    @OneToMany(mappedBy ="researcherRole" ,fetch = FetchType.LAZY)
+    private Set<BoardMember> boardMembers;
+
+    @OneToMany(mappedBy ="researcherRole" ,fetch = FetchType.LAZY)
+    private Set<Editor> editors;
+
+    @OneToMany(mappedBy ="researcherRole" ,fetch = FetchType.LAZY)
+    private Set<Author> authors;
 
 
 }
