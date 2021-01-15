@@ -15,10 +15,10 @@ public class ResearcherRole implements Serializable {
     @Column(nullable=false, length=100)
     private String title;
 
-    @Column(nullable=false, length=2)
+    @Column(nullable=false, length=2 ,name = "role_group")
     private String group; //group refers to Editor/Author/Board member
 
-    @Column(length=100)
+    @Column(length=100,name = "_description")
     private String description;
 
     @OneToMany(mappedBy ="researcherRole" ,fetch = FetchType.LAZY)

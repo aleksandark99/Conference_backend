@@ -29,14 +29,12 @@ public class Editor implements Serializable {
     @Column(length=40)
     private String email;
 
-    @Column(nullable=false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,optional=false)
     private Researcher researcher;
 
     @ManyToOne
     private ResearcherRole researcherRole;
 
-    @Column(nullable=false)
-    @ManyToOne
+    @ManyToOne(optional=false)
     private Proceedings proceedings;
 }

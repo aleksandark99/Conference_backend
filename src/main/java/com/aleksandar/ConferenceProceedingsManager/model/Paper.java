@@ -28,8 +28,7 @@ public class Paper implements Serializable {
     @Column(nullable=false)
     private byte published;
 
-    @Column(nullable=false)
-    @ManyToOne
+    @ManyToOne(optional=false)
     private Proceedings proceedings;
 
     @OneToMany(mappedBy ="paper" ,fetch = FetchType.EAGER)

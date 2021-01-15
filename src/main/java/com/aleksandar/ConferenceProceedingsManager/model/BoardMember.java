@@ -29,12 +29,10 @@ public class BoardMember implements Serializable {
     @Column(length=40)
     private String email;
 
-    @Column(nullable=false)
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY,optional=false)
     private Conference conference;
 
-    @Column(nullable=false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,optional=false)
     private Researcher researcher;
 
     @ManyToOne

@@ -29,8 +29,7 @@ public class Proceedings implements Serializable {
     @Column(nullable=false)
     private boolean published;
 
-    @Column(nullable=false)
-    @ManyToOne
+    @ManyToOne(optional=false)
     private Conference conference;
 
     @OneToMany(mappedBy ="proceedings" ,fetch = FetchType.LAZY)

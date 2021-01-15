@@ -19,8 +19,7 @@ public class ConferenceOrganizer implements Serializable {
     @Column(length=100)
     private String url;
 
-    @Column(nullable=false)
-    @OneToOne(fetch = FetchType.LAZY,mappedBy = "conferenceOrganizer")
+    @OneToOne(fetch = FetchType.LAZY,mappedBy = "conferenceOrganizer",optional = false)
     private Conference conference;
 
 

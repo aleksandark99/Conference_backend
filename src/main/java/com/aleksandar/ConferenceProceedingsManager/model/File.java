@@ -22,7 +22,7 @@ public class File implements Serializable {
 //    @Column(nullable=false)
 //    private int size;
 
-    @ManyToOne
+    @ManyToOne(optional=false)
     private Licence licence;
 
     //fali veza ka proceeigns
